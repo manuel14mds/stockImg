@@ -16,6 +16,13 @@ function NavBar() {
                 <div className="flex justify-between">
                     <Logo />
                     
+                    <div className={`md:flex items-center space-x-3 ${isMenuOpen ? 'flex' : 'hidden'}`}>
+                        <NavLinks />
+                        <UserMenu />
+                        <CartIcon />
+                        <AdminBtn />
+                    </div>
+                    
                     <div className="md:hidden flex items-center">
                         <button 
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -25,13 +32,6 @@ function NavBar() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16"/>
                             </svg>
                         </button>
-                    </div>
-
-                    <div className={`md:flex items-center space-x-3 ${isMenuOpen ? 'flex' : 'hidden'}`}>
-                        <NavLinks />
-                        <UserMenu />
-                        <CartIcon />
-                        <AdminBtn />
                     </div>
                 </div>
             </div>
