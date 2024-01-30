@@ -7,7 +7,31 @@ const nextConfig = {
                 hostname:'leonardo-cdn.b-cdn.net',
                 port:'',
                 pathname:'/**'
-            }
+            },
+            {
+                protocol:'https',
+                hostname:'picsum.photos',
+                port:'',
+                pathname:'/**'
+            },
+            {
+                protocol:'https',
+                hostname:'www.nus.agency',
+                port:'',
+                pathname:'/**'
+            },
+            {
+                protocol:'https',
+                hostname:'concepto.de',
+                port:'',
+                pathname:'/**'
+            },
+            {
+                protocol:'https',
+                hostname:'cdn.domestika.org',
+                port:'',
+                pathname:'/**'
+            },
         ]
     }
 };
