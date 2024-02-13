@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function CartImage({item}) {
     return (
@@ -11,7 +11,7 @@ function CartImage({item}) {
                 <p>${item.price}</p>
             </div>
             <button className="text-red-500 hover:text-red-700">Eliminar</button>
-            <Link href={`/products/${item.id}`}><button className="text-blue-500 hover:text-blue-700 ml-4">Detalles</button></Link>
+            <Link href={`/catalogo/detalle//${item.id}`}><button className="text-blue-500 hover:text-blue-700 ml-4">Detalle</button></Link>
         </div>
     )
 }

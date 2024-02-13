@@ -10,7 +10,7 @@ function SideNav() {
                         <Link href="/admin">Home</Link>
                     </li>
                     <li className="py-2 px-3 text-gray-500 hover:text-gray-700">
-                        <Link href="/admin/products">Products</Link>
+                        <Link href="/admin/imagenes">Imagenes</Link>
                     </li>
                     <li className="py-2 px-3 text-gray-500 hover:text-gray-700">
                         <a href="#">Contacto</a>
