@@ -1,18 +1,17 @@
-import CategoryNav from "@/components/stock/CategoryNav/CategoryNav"
-import SearchBar from "@/components/stock/SearchBar/SearchBar"
-import FilterSidebar from "@/components/stock/FilterSidebar/FilterSidebar"
-
 import { imagenesCatalogo } from "@/app/data/mock"
+import CategoryNav from "@/components/stock/CategoryNav/CategoryNav"
+import FilterSidebar from "@/components/stock/FilterSidebar/FilterSidebar"
 import ImageGrid from "@/components/stock/ImageGrid/ImageGrid"
+import SearchBar from "@/components/stock/SearchBar/SearchBar"
 
 export const generateMetadata = async ({params})=>{
     return {
-        title: `visioStock - ${params.category} images`
+        title: `visioStock - ${params.categoria} images`
     }
 }
 
 function CatalogPage({params}) {
-    const{category} = params
+    const{categoria} = params
     return (
         <>
             <SearchBar />
@@ -21,7 +20,7 @@ function CatalogPage({params}) {
                 <FilterSidebar />
                 {/* Aquí iría tu componente de cuadrícula de imágenes */}
                 <div className="flex-grow p-4 overflow-y-auto">
-                    <ImageGrid category={category} images={imagenesCatalogo}/>
+                    <ImageGrid category={categoria} images={imagenesCatalogo}/>
                 </div>
             </div>
         </>
