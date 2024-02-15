@@ -1,11 +1,7 @@
 import Link from "next/link"
+import ImageList from "./components/imageList"
 
-import ImageItem from "./components/ImageItem"
-
-const Imagenes = async () =>  {
-
-    const response = await fetch('http://localhost:3000/api/images')
-    const images = await response.json()
+const Imagenes = () =>  {
 
     return (
         <div className="p-4">
@@ -28,9 +24,7 @@ const Imagenes = async () =>  {
                             </tr>
                         </thead>
                         <tbody>
-                            {images.map((image) => (
-                                <ImageItem image={image} key={image.id}/>
-                            ))}
+                            <ImageList />
                         </tbody>
                     </table>
                 </div>
