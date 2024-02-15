@@ -1,27 +1,40 @@
 'use client'
 import React, { useState } from 'react'
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { storage } from '@/app/firebase'
+
+
 
 export default function AddImage() {
     const [titulo, setTitulo] = useState('');
     const [descripcion, setDescripcion] = useState('');
     const [archivo, setArchivo] = useState(null);
+    
+    
+    // Función para subir la imagen
+    const uploadImage = async ( ) => {
+        const storageRef = ref(storage, `images/${titulo}`);
+        
+        // Subir archivo
+        await uploadBytes(storageRef, archivo);
+        
+        // Obtener URL de descarga
+        const url = await getDownloadURL(storageRef);
+        return url;
+    };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const imageURL = await uploadImage()
         // Aquí puedes manejar la lógica para agregar la imagen, como enviarla a un backend
         const request =  await fetch("http://localhost:3000/api/images",{
             method:'POST',
             headers:{'Content-Type': 'application/json',},
-            body:JSON.stringify({ titulo, descripcion, archivo }),
+            body:JSON.stringify({ titulo, descripcion, imageURL }),
         })
-        const response = await request.json()
-        console.log(response)
-
     };
 
-    const handleFileChange = (e) => {
-        setArchivo(e.target.files[0]);
-    };
     return (
         <div className="p-4">
             <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
@@ -53,7 +66,8 @@ export default function AddImage() {
                         <input
                             type="file"
                             id="archivo"
-                            onChange={handleFileChange}
+                            allowMultiple={false}
+                            onChange={(e)=>setArchivo(e.target.files[0])}
                             required
                             className="mt-1 block w-full"
                         />
