@@ -11,12 +11,12 @@ function ImageCard({ image }) {
     const closeModal = () => setIsModalOpen(false);
     return (
         <div className="overflow-hidden rounded-lg shadow-lg">
-            <Image src={image.url} alt={image.titulo} className="w-full h-auto object-cover object-top aspect-square" onClick={openModal} width={100} height={100} />
+            <Image src={image.url} alt={image.title} className="w-full h-auto object-cover object-top aspect-square" onClick={openModal} width={100} height={100} />
             <ImageModal imageUrl={image.url} isOpen={isModalOpen} onClose={closeModal} />
             <div className="p-4">
-                <h3 className="font-semibold text-lg">{image.titulo}</h3>
-                <p className="text-sm text-gray-600">{image.descripcion}</p>
-                <p className="text-sm text-gray-800">${image.precio}</p>
+                <h3 className="font-semibold text-lg">{image.title}</h3>
+                <p className="text-sm text-gray-600">{image.description}</p>
+                <p className="text-sm text-gray-800">${image.priceBase}</p>
             </div>
             <div className="p-4 flex justify-between">
                 <Link href="/catalogo/detalle/2" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">detalle</Link>

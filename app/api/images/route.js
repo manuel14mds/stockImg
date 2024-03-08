@@ -20,14 +20,14 @@ const saveImageData = async (imageData) => {
 const createImgInfo = (data, imageUrl) => {
     return {
         downloadsCount: 2,
-        author: "manuel florez",
+        author: "Admin",
         priceBase: 15,
         description: data.descripcion,
         active: true,
         url: imageUrl,
         viewsCount: 50,
         title: data.titulo,
-        category: "painting",
+        category: "ilustracion",
         albumRef: "none",
         rating: 53.2,
         licenseType: "standard",
